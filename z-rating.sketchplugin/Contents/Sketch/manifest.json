@@ -1,0 +1,27 @@
+{
+  "author" : "",
+  "commands" : [
+    {
+      "script" : "script.cocoascript",
+      "name" : "z-rating",
+      "handlers" : {
+        "run" : "onRun",
+        "actions":{
+          "TextChanged.finish":"OnTextChange"
+        }
+      },
+      "identifier" : "com.bohemiancoding.sketch.runscriptidentifier"
+    }
+  ],
+  "menu" : {
+    "title" : "z-rating",
+    "items" : [
+      "com.bohemiancoding.sketch.runscriptidentifier"
+    ]
+  },
+  "identifier" : "com.example.sketch.2bfef64a-829d-4273-98d5-8e7f5a2db177",
+  "version" : "1.0",
+  "description" : "",
+  "authorEmail" : "",
+  "name" : "z-rating"
+}

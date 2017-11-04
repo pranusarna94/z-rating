@@ -1,0 +1,74 @@
+var onRun = function(context) {
+
+
+};
+
+var OnTextChange = function(context){
+
+	var action = context.actionContext
+
+	var textLayer = action.layer;
+
+	var numberOfAncestors = textLayer.ancestors().length;
+
+	var parent = textLayer.ancestors().objectAtIndex(numberOfAncestors-1);
+
+	var background = parent.children().objectAtIndex(1);
+
+	var backgroundStyle = background.style().firstEnabledFill();
+ 	
+ 	if(parent.class() == "MSLayerGroup" && parent.name() == "Rating" || parent.name() == "rating"){
+
+ 		
+ 		var ratingValue = Number(textLayer.stringValue());
+ 		
+
+ 		if(ratingValue <= 1.0 ){
+ 			setColor(background, "#C92332");
+
+ 		}else if(ratingValue > 1 && ratingValue < 1.5){
+			setColor(background, "#CA3F36");
+
+ 		}else if(ratingValue >= 1.5 && ratingValue < 2.0 ){
+			setColor(background, "#EC803D");
+
+ 		}else if(ratingValue >= 2.0 && ratingValue < 2.5 ){
+ 			setColor(background, "#F4B743");
+
+ 		}else if(ratingValue >= 2.5 && ratingValue < 3.0 ){
+ 			setColor(background, "#F4B743");
+
+ 		}else if(ratingValue >= 3.0 && ratingValue < 3.5){
+			setColor(background, "#EAD045"); 			
+
+ 		}else if(ratingValue >= 3.5 && ratingValue < 4.0){
+ 			setColor(background, "#A9C346"); 			
+
+ 		}else if(ratingValue >= 4.0 && ratingValue < 4.5){
+ 			setColor(background, "#537715");
+
+ 		}else if(ratingValue >= 4.5 && ratingValue < 5 ){
+ 			setColor(background, "#3E570E");
+
+ 		}else{
+ 			context.document.showMessage('Not a real Zoman!');
+
+ 		}
+ 		
+
+
+
+
+ 	}else{
+
+ 	}
+	
+
+	
+}
+
+var setColor = function(layer, color){
+	var layerStyle = layer.style().firstEnabledFill();
+	layerStyle.setColor(MSImmutableColor.colorWithSVGString(color).newMutableCounterpart());
+
+}
